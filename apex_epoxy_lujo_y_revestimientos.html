@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apex Epoxy | Revestimientos de Lujo & Resina Epóxica</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Outfit & Plus Jakarta Sans for modern luxury tech aesthetic -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Outfit"', '"Plus Jakarta Sans"', 'sans-serif'],
+                        display: ['"Outfit"', 'sans-serif']
+                    },
+                    colors: {
+                        obsidian: {
+                            900: '#06070B',
+                            800: '#0D0F17',
+                            700: '#141824',
+                            600: '#1E2336'
+                        },
+                        neon: {
+                            cyan: '#00F2FE',
+                            blue: '#4FACFE',
+                            violet: '#7209B7',
+                            magenta: '#F72585',
+                            gold: '#FFB703',
+                            green: '#2EC4B6'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #06070B;
+            color: #F3F4F6;
+            font-family: 'Outfit', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Glassmorphism containers */
+        .glass-panel {
+            background: rgba(13, 15, 23, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .glass-card {
+            background: rgba(20, 24, 36, 0.65);
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .glass-card:hover {
+            border-color: rgba(0, 242, 254, 0.45);
+            transform: translateY(-6px);
+            box-shadow: 0 15px 35px -10px rgba(0, 242, 254, 0.25);
+        }
+
+        /* Luminous Text Gradients */
+        .gradient-text-vivid {
+            background: linear-gradient(135deg, #00F2FE 0%, #9D4EDD 50%, #F72585 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gradient-text-gold {
+            background: linear-gradient(135deg, #FFF 0%, #FFB703 50%, #FB8500 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Gradient Buttons with Vibrant Glow Effects */
+        .btn-gradient-cyan {
+            background: linear-gradient(135deg, #00F2FE 0%, #4FACFE 100%);
+            color: #06070B;
+            box-shadow: 0 0 25px rgba(0, 242, 254, 0.4);
+            transition: all 0.3s ease;
+        }
+        .btn-gradient-cyan:hover {
+            box-shadow: 0 0 35px rgba(0, 242, 254, 0.8);
+            transform: translateY(-2px) scale(1.02);
+        }
+
+        .btn-gradient-magenta {
+            background: linear-gradient(135deg, #F72585 0%, #7209B7 100%);
+            color: #FFFFFF;
+            box-shadow: 0 0 25px rgba(247, 37, 133, 0.4);
+            transition: all 0.3s ease;
+        }
+        .btn-gradient-magenta:hover {
+            box-shadow: 0 0 35px rgba(247, 37, 133, 0.8);
+            transform: translateY(-2px) scale(1.02);
+        }
+
+        .btn-gradient-gold {
+            background: linear-gradient(135deg, #FFB703 0%, #FB8500 100%);
+            color: #06070B;
+            box-shadow: 0 0 25px rgba(255, 183, 3, 0.4);
+            transition: all 0.3s ease;
+        }
+        .btn-gradient-gold:hover {
+            box-shadow: 0 0 35px rgba(255, 183, 3, 0.8);
+            transform: translateY(-2px) scale(1.02);
+        }
+
+        /* Ambient Glow Backgrounds */
+        .glow-blob-cyan {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0,242,254,0.18) 0%, rgba(0,0,0,0) 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .glow-blob-violet {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(114,9,183,0.22) 0%, rgba(0,0,0,0) 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        /* Custom Range Slider Styling */
+        input[type=range] {
+            -webkit-appearance: none;
+            background: #141824;
+            border-radius: 12px;
+            height: 10px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 24px;
+            width: 24px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #00F2FE, #7209B7);
+            cursor: pointer;
+            box-shadow: 0 0 15px rgba(0, 242, 254, 0.9);
+            border: 2px solid #FFFFFF;
+        }
+
+        /* Subtle Background Grid Mesh */
+        .bg-mesh-pattern {
+            background-image: radial-gradient(rgba(0, 242, 254, 0.08) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+
+        /* Smooth Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #06070B; }
+        ::-webkit-scrollbar-thumb { background: #1E2336; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #00F2FE; }
+    </style>
+</head>
+<body class="bg-obsidian-900 text-gray-100 antialiased relative">
+
+    <header class="fixed top-0 left-0 right-0 z-50 glass-panel border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Ultra Professional APEX EPOXY Logo -->
+                <a href="#" class="flex items-center gap-3.5 group">
+                    <div class="relative w-12 h-12 flex items-center justify-center">
+                        <div class="absolute inset-0 bg-gradient-to-tr from-neon-cyan via-neon-violet to-neon-magenta rounded-2xl blur-md opacity-80 group-hover:opacity-100 transition-opacity"></div>
+                        
+                        <!-- 3D Resin Droplet & Crystal Shield Vector Emblem -->
+                        <div class="relative z-10 w-full h-full bg-obsidian-900 rounded-2xl flex items-center justify-center border border-white/20 shadow-inner overflow-hidden">
+                            <svg class="w-8 h-8" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <linearGradient id="dropGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#00F2FE" />
+                                        <stop offset="50%" stop-color="#7209B7" />
+                                        <stop offset="100%" stop-color="#F72585" />
+                                    </linearGradient>
+                                    <linearGradient id="dropHighlight" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.8" />
+                                        <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0" />
+                                    </linearGradient>
+                                </defs>
+                                
+                                <!-- Outer Droplet Outline -->
+                                <path d="M50 8 C50 8 82 45 82 66 C82 83.67 67.67 92 50 92 C32.33 92 18 83.67 18 66 C18 45 50 8 50 8 Z" 
+                                      fill="url(#dropGrad)" opacity="0.25" stroke="url(#dropGrad)" stroke-width="4"/>
+                                
+                                <!-- Inner Geometric Facets (3D Liquid Crystal Effect) -->
+                                <path d="M50 16 L74 62 L50 84 L26 62 Z" fill="none" stroke="url(#dropGrad)" stroke-width="3" stroke-linejoin="round"/>
+                                <path d="M50 16 L50 84" stroke="url(#dropGrad)" stroke-width="2" opacity="0.6"/>
+                                <path d="M26 62 L74 62" stroke="url(#dropGrad)" stroke-width="2" opacity="0.6"/>
+                                
+                                <!-- Shiny Liquid Reflection -->
+                                <path d="M42 22 C42 22 30 50 30 62" stroke="url(#dropHighlight)" stroke-width="4" stroke-linecap="round"/>
+                                <circle cx="50" cy="62" r="6" fill="#00F2FE"/>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col">
+                        <span class="font-extrabold text-2xl tracking-wider text-white flex items-center gap-1.5">
+                            APEX <span class="gradient-text-vivid">EPOXY</span>
+                        </span>
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-neon-cyan">
+                            Revestimientos de Alta Gama
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Navigation Links -->
+                <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold">
+                    <a href="#inicio" class="text-gray-300 hover:text-neon-cyan transition-colors">Inicio</a>
+                    <a href="#servicios" class="text-gray-300 hover:text-neon-cyan transition-colors">Productos & Muestras</a>
+                    <a href="#calculadora" class="text-neon-cyan flex items-center gap-2 hover:text-white transition-colors bg-neon-cyan/10 px-3.5 py-1.5 rounded-full border border-neon-cyan/30">
+                        <i class="fa-solid fa-calculator text-xs"></i>
+                        <span>Calcular Presupuesto</span>
+                    </a>
+                    <a href="#beneficios" class="text-gray-300 hover:text-neon-cyan transition-colors">Beneficios</a>
+                    <a href="#preguntas" class="text-gray-300 hover:text-neon-cyan transition-colors">Preguntas</a>
+                </nav>
+
+                <!-- Header Action Button -->
+                <div class="flex items-center gap-4">
+                    <a href="https://wa.me/584244421118?text=Hola%20Apex%20Epoxy,%20quisiera%20asesor%C3%ADa%20para%20un%20proyecto." 
+                       target="_blank" 
+                       class="hidden sm:inline-flex items-center gap-2.5 btn-gradient-cyan px-5 py-2.5 rounded-xl text-sm font-extrabold">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span>0424-4421118</span>
+                    </a>
+
+                    <!-- Mobile Menu Button -->
+                    <button id="mobileMenuBtn" class="md:hidden text-gray-300 hover:text-white p-2" aria-label="Abrir Menú">
+                        <i class="fa-solid fa-bars-staggered text-2xl"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobileMenu" class="hidden md:hidden glass-panel border-t border-white/10 px-4 pt-3 pb-6 space-y-3">
+            <a href="#inicio" class="block py-2 text-gray-200 hover:text-neon-cyan font-medium">Inicio</a>
+            <a href="#servicios" class="block py-2 text-gray-200 hover:text-neon-cyan font-medium">Productos & Muestras</a>
+            <a href="#calculadora" class="block py-2 text-neon-cyan font-bold">Calculadora m²</a>
+            <a href="#beneficios" class="block py-2 text-gray-200 hover:text-neon-cyan font-medium">Beneficios</a>
+            <a href="#preguntas" class="block py-2 text-gray-200 hover:text-neon-cyan font-medium">Preguntas</a>
+            <a href="https://wa.me/584244421118" target="_blank" class="flex items-center justify-center gap-2 btn-gradient-cyan font-extrabold py-3 rounded-xl mt-4">
+                <i class="fa-brands fa-whatsapp text-lg"></i>
+                <span>WhatsApp: 0424-4421118</span>
+            </a>
+        </div>
+    </header>
+
+    <section id="inicio" class="relative pt-36 pb-20 md:pt-48 md:pb-32 overflow-hidden bg-mesh-pattern">
+        
+        <!-- Ambient Glow Elements -->
+        <div class="glow-blob-cyan -top-20 left-1/4"></div>
+        <div class="glow-blob-violet top-1/3 -right-20"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-4xl mx-auto space-y-8">
+                
+                <!-- Pill Badge -->
+                <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full glass-card border border-neon-cyan/40 text-neon-cyan text-xs sm:text-sm font-bold tracking-wide uppercase shadow-lg">
+                    <span class="w-2.5 h-2.5 rounded-full bg-neon-cyan animate-pulse"></span>
+                    <span>Revestimientos de Lujo para Pisos & Paredes</span>
+                </div>
+
+                <!-- Headline -->
+                <h1 class="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight text-white leading-[1.15]">
+                    Lo Hacemos Posible: <br class="hidden sm:inline">
+                    <span class="gradient-text-vivid">Superficies Continuas de Alto Impacto</span>
+                </h1>
+
+                <!-- Subheadline -->
+                <p class="text-lg sm:text-2xl text-gray-300 font-normal leading-relaxed max-w-3xl mx-auto">
+                    Transformamos tu espacio con <strong class="text-white font-semibold">Resina Epóxica, Porcelanato Líquido, Microcemento, Estuco Veneciano y Granito Continuo</strong>. Estética sin juntas y resistencia superior.
+                </p>
+
+                <!-- Hero Call To Action Buttons -->
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-5 pt-4">
+                    <a href="#calculadora" class="w-full sm:w-auto btn-gradient-magenta font-extrabold px-8 py-4 rounded-2xl flex items-center justify-center gap-3 text-base">
+                        <i class="fa-solid fa-calculator text-lg"></i>
+                        <span>Calcular Presupuesto m²</span>
+                    </a>
+                    
+                    <a href="https://wa.me/584244421118?text=Hola%20Apex%20Epoxy,%20quisiera%20asesor%C3%ADa%20personalizada." target="_blank" class="w-full sm:w-auto glass-card text-white hover:text-neon-cyan border border-white/20 hover:border-neon-cyan/50 font-bold px-8 py-4 rounded-2xl flex items-center justify-center gap-3 text-base">
+                        <i class="fa-brands fa-whatsapp text-emerald-400 text-xl"></i>
+                        <span>Contactar por WhatsApp</span>
+                    </a>
+                </div>
+
+                <!-- Highlights Bar -->
+                <div class="pt-12 grid grid-cols-2 md:grid-cols-4 gap-4 text-left">
+                    <div class="glass-card p-4 rounded-2xl flex items-center gap-3.5 border border-white/10">
+                        <div class="p-3 rounded-xl bg-neon-cyan/10 text-neon-cyan">
+                            <i class="fa-solid fa-gem text-xl"></i>
+                        </div>
+                        <div>
+                            <p class="text-[11px] uppercase tracking-wider text-gray-400">Diseño</p>
+                            <p class="text-sm font-bold text-white">Acabado Espejo / Mármol</p>
+                        </div>
+                    </div>
+
+                    <div class="glass-card p-4 rounded-2xl flex items-center gap-3.5 border border-white/10">
+                        <div class="p-3 rounded-xl bg-neon-violet/20 text-neon-violet">
+                            <i class="fa-solid fa-shield-halved text-xl"></i>
+                        </div>
+                        <div>
+                            <p class="text-[11px] uppercase tracking-wider text-gray-400">Resistencia</p>
+                            <p class="text-sm font-bold text-white">Alto Tráfico Pesado</p>
+                        </div>
+                    </div>
+
+                    <div class="glass-card p-4 rounded-2xl flex items-center gap-3.5 border border-white/10">
+                        <div class="p-3 rounded-xl bg-neon-magenta/10 text-neon-magenta">
+                            <i class="fa-solid fa-droplet-slash text-xl"></i>
+                        </div>
+                        <div>
+                            <p class="text-[11px] uppercase tracking-wider text-gray-400">Impermeable</p>
+                            <p class="text-sm font-bold text-white">Sin Juntas ni Moho</p>
+                        </div>
+                    </div>
+
+                    <div class="glass-card p-4 rounded-2xl flex items-center gap-3.5 border border-white/10">
+                        <div class="p-3 rounded-xl bg-neon-gold/10 text-neon-gold">
+                            <i class="fa-solid fa-award text-xl"></i>
+                        </div>
+                        <div>
+                            <p class="text-[11px] uppercase tracking-wider text-gray-400">Garantía</p>
+                            <p class="text-sm font-bold text-white">Trabajo Certificado</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="calculadora" class="py-20 relative z-20">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center mb-12">
+                <span class="text-neon-cyan text-xs sm:text-sm font-bold uppercase tracking-widest bg-neon-cyan/10 px-4 py-1.5 rounded-full border border-neon-cyan/20">
+                    Calculadora de Presupuesto en Tiempo Real
+                </span>
+                <h2 class="text-3xl sm:text-5xl font-black text-white mt-4 tracking-tight">
+                    Calcular Presupuesto <span class="gradient-text-vivid">por Metro Cuadrado</span>
+                </h2>
+                <p class="text-gray-300 mt-3 max-w-xl mx-auto text-sm sm:text-base">
+                    Selecciona el producto que deseas, especifica si es para piso o pared (según aplique) y calcula tu monto estimado al instante.
+                </p>
+            </div>
+
+            <!-- Calculator Main Container -->
+            <div class="glass-panel rounded-3xl p-6 sm:p-10 border border-neon-cyan/30 shadow-2xl relative overflow-hidden">
+                
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                    
+                    <!-- Controls Column -->
+                    <div class="lg:col-span-7 space-y-6">
+                        
+                        <!-- Step 1: Select Product -->
+                        <div>
+                            <label class="block text-sm font-bold text-gray-200 mb-3 flex items-center gap-2">
+                                <span class="w-6 h-6 rounded-lg bg-neon-cyan text-obsidian-900 flex items-center justify-center text-xs font-black">1</span>
+                                Selecciona el Producto:
+                            </label>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="calcProductGrid">
+                                
+                                <!-- Microcemento Button -->
+                                <button type="button" onclick="selectCalcProduct('microcemento')" id="calc-btn-microcemento" class="calc-prod-btn glass-card p-3.5 rounded-2xl text-left border border-white/10 hover:border-neon-cyan transition-all flex items-center gap-3">
+                                    <div class="p-2.5 rounded-xl bg-neon-cyan/10 text-neon-cyan">
+                                        <i class="fa-solid fa-layer-group text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-white text-sm">Microcemento</p>
+                                        <p class="text-[11px] text-gray-400">Piso ($13) / Pared ($12)</p>
+                                    </div>
+                                </button>
+
+                                <!-- Porcelanato Líquido Button -->
+                                <button type="button" onclick="selectCalcProduct('porcelanato')" id="calc-btn-porcelanato" class="calc-prod-btn glass-card p-3.5 rounded-2xl text-left border border-white/10 hover:border-neon-cyan transition-all flex items-center gap-3">
+                                    <div class="p-2.5 rounded-xl bg-neon-magenta/20 text-neon-magenta">
+                                        <i class="fa-solid fa-sparkles text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-white text-sm">Porcelanato Líquido</p>
+                                        <p class="text-[11px] text-gray-400">$26/m² (Solo Pisos)</p>
+                                    </div>
+                                </button>
+
+                                <!-- Granito Líquido Button -->
+                                <button type="button" onclick="selectCalcProduct('granito_liquido')" id="calc-btn-granito_liquido" class="calc-prod-btn glass-card p-3.5 rounded-2xl text-left border border-white/10 hover:border-neon-cyan transition-all flex items-center gap-3">
+                                    <div class="p-2.5 rounded-xl bg-neon-green/20 text-neon-green">
+                                        <i class="fa-solid fa-fill-drip text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-white text-sm">Granito Líquido</p>
+                                        <p class="text-[11px] text-gray-400">$17/m² (Solo Pisos)</p>
+                                    </div>
+                                </button>
+
+                                <!-- Estuco Veneciano Button -->
+                                <button type="button" onclick="selectCalcProduct('estuco')" id="calc-btn-estuco" class="calc-prod-btn glass-card p-3.5 rounded-2xl text-left border border-white/10 hover:border-neon-cyan transition-all flex items-center gap-3">
+                                    <div class="p-2.5 rounded-xl bg-neon-violet/20 text-neon-violet">
+                                        <i class="fa-solid fa-paint-roller text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-white text-sm">Estuco Veneciano</p>
+                                        <p class="text-[11px] text-gray-400">$15/m² (Solo Paredes)</p>
+                                    </div>
+                                </button>
+
+                                <!-- Granito Epóxico Button -->
+                                <button type="button" onclick="selectCalcProduct('granito_epoxico')" id="calc-btn-granito_epoxico" class="calc-prod-btn glass-card p-3.5 rounded-2xl text-left border border-white/10 hover:border-neon-cyan transition-all flex items-center gap-3">
+                                    <div class="p-2.5 rounded-xl bg-neon-gold/20 text-neon-gold">
+                                        <i class="fa-solid fa-cubes text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-white text-sm">Granito Epóxico</p>
+                                        <p class="text-[11px] text-gray-400">$9/m² (Solo Pisos)</p>
+                                    </div>
+                                </button>
+
+                                <!-- Piso Epóxico Button -->
+                                <button type="button" onclick="selectCalcProduct('piso_epoxico')" id="calc-btn-piso_epoxico" class="calc-prod-btn glass-card p-3.5 rounded-2xl text-left border border-white/10 hover:border-neon-cyan transition-all flex items-center gap-3">
+                                    <div class="p-2.5 rounded-xl bg-neon-blue/20 text-neon-blue">
+                                        <i class="fa-solid fa-gem text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-white text-sm">Piso Epóxico</p>
+                                        <p class="text-[11px] text-gray-400">$8/m² (Solo Pisos)</p>
+                                    </div>
+                                </button>
+
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Surface Dynamic Selection (Floor vs Wall for Microcemento) -->
+                        <div id="surfaceSelectionBox" class="p-4 rounded-2xl glass-card border border-neon-cyan/40 bg-obsidian-800/80">
+                            <label class="block text-sm font-bold text-gray-200 mb-2.5 flex items-center gap-2">
+                                <span class="w-6 h-6 rounded-lg bg-neon-cyan text-obsidian-900 flex items-center justify-center text-xs font-black">2</span>
+                                Configuración de Superficie:
+                            </label>
+
+                            <!-- Interactive Surface Selector for Microcemento -->
+                            <div id="microcementoToggleContainer" class="grid grid-cols-2 gap-3">
+                                <button type="button" onclick="setMicrocementoSurface('piso')" id="surf-piso-btn" class="py-2.5 px-4 rounded-xl border border-neon-cyan bg-neon-cyan/20 text-white font-bold text-xs flex items-center justify-center gap-2 transition-all">
+                                    <i class="fa-solid fa-vector-square text-neon-cyan"></i>
+                                    <span>Piso ($13/m²)</span>
+                                </button>
+                                <button type="button" onclick="setMicrocementoSurface('pared')" id="surf-pared-btn" class="py-2.5 px-4 rounded-xl border border-white/10 bg-white/5 text-gray-300 hover:text-white font-bold text-xs flex items-center justify-center gap-2 transition-all">
+                                    <i class="fa-solid fa-border-all text-gray-400"></i>
+                                    <span>Pared ($12/m²)</span>
+                                </button>
+                            </div>
+
+                            <!-- Fixed Surface Badge Display for other products -->
+                            <div id="fixedSurfaceNotice" class="hidden text-xs text-gray-300 font-medium flex items-center gap-2 pt-1">
+                                <i class="fa-solid fa-circle-info text-neon-cyan text-sm"></i>
+                                <span id="fixedSurfaceText">Aplicación exclusiva para pisos</span>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Metros Cuadrados Slider -->
+                        <div class="space-y-4 pt-1">
+                            <div class="flex items-center justify-between">
+                                <label class="text-sm font-bold text-gray-200 flex items-center gap-2">
+                                    <span class="w-6 h-6 rounded-lg bg-neon-cyan text-obsidian-900 flex items-center justify-center text-xs font-black">3</span>
+                                    Superficie en Metros Cuadrados (m²):
+                                </label>
+
+                                <div class="flex items-center gap-2 bg-obsidian-700 px-3 py-1.5 rounded-xl border border-white/20">
+                                    <input type="number" id="areaInput" min="1" max="1000" value="40" class="bg-transparent text-neon-cyan font-extrabold text-xl w-16 text-right focus:outline-none">
+                                    <span class="text-gray-400 text-xs font-bold">m²</span>
+                                </div>
+                            </div>
+
+                            <input type="range" id="areaSlider" min="5" max="250" value="40" class="w-full">
+                            <div class="flex justify-between text-xs text-gray-400 font-mono">
+                                <span>5 m²</span>
+                                <span>100 m²</span>
+                                <span>180 m²</span>
+                                <span>250+ m²</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Summary Display Box -->
+                    <div class="lg:col-span-5 glass-card rounded-2xl p-6 border border-neon-cyan/40 flex flex-col justify-between bg-obsidian-800/90 relative">
+                        <div>
+                            <div class="flex items-center justify-between pb-4 border-b border-white/10">
+                                <span class="text-xs font-bold text-neon-cyan uppercase tracking-widest">Resumen del Cálculo</span>
+                                <span id="surfaceTag" class="text-[11px] font-bold px-3 py-1 rounded-full bg-neon-cyan/10 text-neon-cyan border border-neon-cyan/30">Piso</span>
+                            </div>
+
+                            <div class="mt-6 space-y-4 text-sm">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-gray-400">Producto:</span>
+                                    <span id="summaryProductName" class="font-bold text-white text-base">Microcemento</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-gray-400">Superficie Total:</span>
+                                    <span id="summaryArea" class="font-bold text-white">40 m²</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-gray-400">Precio Ref. m²:</span>
+                                    <span id="summaryUnitPrice" class="font-bold text-neon-cyan">$13.00 / m²</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-gray-400">Incluye:</span>
+                                    <span class="text-xs text-gray-300">Material + Aplicación Profesional</span>
+                                </div>
+                            </div>
+
+                            <hr class="my-6 border-white/10">
+
+                            <!-- Total Display -->
+                            <div class="text-center py-2">
+                                <span class="text-xs text-gray-400 uppercase tracking-widest block mb-1">Monto Estimado Total</span>
+                                <div class="text-4xl sm:text-5xl font-black gradient-text-vivid flex items-center justify-center gap-1">
+                                    <span>$</span><span id="totalDisplay">520</span>
+                                    <span class="text-xs text-gray-400 font-sans font-normal self-end mb-2">USD</span>
+                                </div>
+                                <p class="text-[11px] text-gray-400 mt-2">
+                                    *Presupuesto inicial. Sujeto a evaluación previa del estado de la superficie base.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Direct WhatsApp Action Button -->
+                        <div class="mt-6">
+                            <a id="whatsappCalcBtn" 
+                               href="#" 
+                               target="_blank" 
+                               class="w-full btn-gradient-cyan font-black py-4 px-4 rounded-xl flex items-center justify-center gap-2.5 text-sm">
+                                <i class="fa-brands fa-whatsapp text-xl"></i>
+                                <span>Solicitar Presupuesto por WhatsApp</span>
+                            </a>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="servicios" class="py-20 bg-obsidian-800/50 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <span class="text-neon-cyan text-xs sm:text-sm font-bold uppercase tracking-widest bg-neon-cyan/10 px-4 py-1.5 rounded-full border border-neon-cyan/20">
+                        Catálogo de Revestimientos
+                    </span>
+                    <h2 class="text-3xl sm:text-5xl font-black text-white mt-4 tracking-tight">
+                        Nuestros Productos & <span class="gradient-text-vivid">Muestras Reales</span>
+                    </h2>
+                </div>
+            </div>
+
+            <!-- Products Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Product 1: Microcemento -->
+                <div class="glass-card rounded-3xl overflow-hidden flex flex-col justify-between border border-white/10 group">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80" 
+                             alt="Microcemento Muestra" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-obsidian-900 via-transparent to-transparent"></div>
+                        <span class="absolute top-4 left-4 bg-neon-cyan/90 text-obsidian-900 text-xs font-black px-3 py-1 rounded-full uppercase">
+                            Pisos ($13/m²) & Paredes ($12/m²)
+                        </span>
+                    </div>
+                    
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-white mb-2">Microcemento</h3>
+                        <p class="text-gray-300 text-sm mb-4 leading-relaxed">
+                            Superficie continua polimérica sin juntas de dilatación. Brinda un acabado industrial minimalista y elegante para todo tipo de ambientes.
+                        </p>
+                        <div class="space-y-2 text-xs text-gray-300 mb-6">
+                            <p class="flex items-center gap-2"><i class="fa-solid fa-check text-neon-cyan"></i> No requiere demoler el suelo previo (2-3mm de espesor)</p>
+                            <p class="flex items-center gap-2"><i class="fa-solid fa-check text-neon-cyan"></i> Aplicación versátil en pisos y paredes</p>
+                        </div>
+                    </div>
+
+                    <div class="p-6 pt-0 flex gap-3">
+                        <button onclick="openGalleryModal('microcemento')" class="flex-1 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs transition-all flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-images"></i>
+                            <span>Ver Muestras</span>
+                        </button>
+                        <button onclick="quickSelectCalc('microcemento')" class="flex-1 py-3 rounded-xl btn-gradient-cyan text-xs font-bold flex items-center justify-center gap-1">
+                            <span>Cotizar</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 2: Porcelanato Líquido -->
+                <div class="glass-card rounded-3xl overflow-hidden flex flex-col justify-between border border-white/10 group">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=800&q=80" 
+                             alt="Porcelanato Liquido Muestra" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-obsidian-900 via-transparent to-transparent"></div>
+                        <span class="absolute top-4 left-4 bg-neon-magenta text-white text-xs font-black px-3 py-1 rounded-full uppercase">
+                            Exclusivo Pisos ($26/m²)
+                        </span>
+                    </div>
+                    
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-white mb-2">Porcelanato Líquido</h3>
+                        <p class="text-gray-300 text-sm mb-4 leading-relaxed">
+                            Resina vitrificada de lujo supremo con acabado de reflejo cristalino 100% liso. Ideal para salones de lujo y espacios comerciales.
+                        </p>
+                        <div class="space-y-2 text-xs text-gray-300 mb-6">
+                            <p class="flex items-center gap-2"><i class="fa-solid fa-check text-neon-magenta"></i> Brillo cristalino insuperable con veteados marmolados</p>
+                            <p class="flex items-center gap-2"><i class="fa-solid fa-check text-neon-magenta"></i> Autonivelante de alta resistencia al impacto</p>
+                        </div>
+                    </div>
+
+                    <div class="p-6 pt-0 flex gap-3">
+                        <button onclick="openGalleryModal('porcelanato')" class="flex-1 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs transition-all flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-images"></i>
+                            <span>Ver Muestras</span>
+                        </button>
+                        <button onclick="quickSelectCalc('porcelanato')" class="flex-1 py-3 rounded-xl btn-gradient-magenta text-xs font-bold flex items-center justify-center gap-1">
+                            <span>Cotizar</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 3: Granito Líquido -->
+                <div class="glass-card rounded-3xl overflow-hidden flex flex-col justify-between border border-white/10 group">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=800&q=80" 
+                             alt="Granito Liquido Muestra" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-obsidian-900 via-transparent to-transparent"></div>
+                        <span class="absolute top-4 left-4 bg-neon-green text-obsidian-900 text-xs font-black px-3 py-1 rounded-full uppercase">
+                            Exclusivo Pisos ($17/m²)
+                        </span>
+                    </div>
+                    
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-white mb-2">Granito Líquido</h3>
+                        <p class="text-gray-300 text-sm mb-4 leading-relaxed">
+                            Combina la estética elegante de la granometría de piedra natural con la resistencia impermeabilizante de la resina epóxica.
+                        </p>
+                        <div class="space-y-2 text-xs text-gray-300 mb-6">
+                            <p class="flex items-center gap-2"><i class="fa-solid fa-check text-neon-green"></i> Textura única mineral con máxima durabilidad</p>
+                            <p class="flex items-center gap-2"><i class="fa-solid fa-check text-neon-green"></i> Cero porosidad y fácil mantenimiento</p>
+                        </div>
+                    </div>
+
+                    <div class="p-6 pt-0 flex gap-3">
+                        <button onclick="openGalleryModal('granito_liquido')" class="flex-1 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs transition-all flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-images"></i>
+                            <span>Ver Muestras</span>
+                        </button>
+                        <button onclick="quickSelectCalc('granito_liquido')" class="flex-1 py-3 rounded-xl btn-gradient-cyan text-xs font-bold flex items-center justify-center gap-1">
+                            <span>Cotizar</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 4: Estuco Veneciano -->
+                <div class="glass-card rounded-3xl overflow-hidden flex flex-col justify-between border border-white/10 group">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80" 
+                             alt="Estuco Veneciano Muestra" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-obsidian-900 via-transparent to-transparent"></div>
+                        <span class="absolute top-4 left-4 bg-neon-violet text-white text-xs font-black px-3 py-1 rounded-full uppercase">
+                            Exclusivo Paredes ($15/m²)
+                        </span>
+                    </div>
+                    
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-white mb-2">Estuco Veneciano</h3>
+                        <p class="text-gray-300 text-sm mb-4 leading-relaxed">
+                            Pasta artesanal de cal y polvo de mármol que crea efectos de claroscuro satinados de singular elegancia para muros y columnas.
+                        </p>
+                        <div class="space-y-2 text-xs text-gray-300 mb-6">
+                            <p class="flex items-center gap-2"><i class="fa-solid fa-check text-neon-violet"></i> Textura suave tipo mármol renacentista</p>
+                            <p class="flex items-center gap-2"><i class="fa-solid fa-check text-neon-violet"></i> Lavable y altamente transpirable</p>
+                        </div>
+                    </div>
+
+                    <div class="p-6 pt-0 flex gap-3">
+                        <button onclick="openGalleryModal('estuco')" class="flex-1 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs transition-all flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-images"></i>
+                            <span>Ver Muestras</span>
+                        </button>
+                        <button onclick="quickSelectCalc('estuco')" class="flex-1 py-3 rounded-xl btn-gradient-magenta text-xs font-bold flex items-center justify-center gap-1">
+                            <span>Cotizar</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 5: Granito Epóxico -->
+                <div class="glass-card rounded-3xl overflow-hidden flex flex-col justify-between border border-white/10 group">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1615529182904-14819c35db37?auto=format&fit=crop&w=800&q=80" 
+                             alt="Granito Epoxico Muestra" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-obsidian-900 via-transparent to-transparent"></div>
+                        <span class="absolute top-4 left-4 bg-neon-gold text-obsidian-900 text-xs font-black px-3 py-1 rounded-full uppercase">
+                            Exclusivo Pisos ($9/m²)
+                        </span>
+                    </div>
+                    
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-white mb-2">Granito Epóxico</h3>
+                        <p class="text-gray-300 text-sm mb-4 leading-relaxed">
+                            Sistema continuo con hojuelas de granito suspendidas en matriz epóxica. Altamente duradero para áreas comerciales y garajes.
+                        </p>
+                        <div class="space-y-2 text-xs text-gray-300 mb-6">
+                            <p class="flex items-center gap-2"><i class="fa-solid fa-check text-neon-gold"></i> Alta resistencia a fricción y derrames</p>
+                            <p class="flex items-center gap-2"><i class="fa-solid fa-check text-neon-gold"></i> Acabado semirrugoso o antideslizante</p>
+                        </div>
+                    </div>
+
+                    <div class="p-6 pt-0 flex gap-3">
+                        <button onclick="openGalleryModal('granito_epoxico')" class="flex-1 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs transition-all flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-images"></i>
+                            <span>Ver Muestras</span>
+                        </button>
+                        <button onclick="quickSelectCalc('granito_epoxico')" class="flex-1 py-3 rounded-xl btn-gradient-gold text-xs font-bold flex items-center justify-center gap-1">
+                            <span>Cotizar</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 6: Piso Epóxico -->
+                <div class="glass-card rounded-3xl overflow-hidden flex flex-col justify-between border border-white/10 group">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80" 
+                             alt="Piso Epoxico Muestra" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-obsidian-900 via-transparent to-transparent"></div>
+                        <span class="absolute top-4 left-4 bg-neon-blue text-white text-xs font-black px-3 py-1 rounded-full uppercase">
+                            Exclusivo Pisos ($8/m²)
+                        </span>
+                    </div>
+                    
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-white mb-2">Piso Epóxico</h3>
+                        <p class="text-gray-300 text-sm mb-4 leading-relaxed">
+                            Recubrimiento autonivelante monocromático industrial y residencial de rápida ejecución con precio súper competitivo.
+                        </p>
+                        <div class="space-y-2 text-xs text-gray-300 mb-6">
+                            <p class="flex items-center gap-2"><i class="fa-solid fa-check text-neon-blue"></i> Económico y ultra resistente a químicos</p>
+                            <p class="flex items-center gap-2"><i class="fa-solid fa-check text-neon-blue"></i> Acabado brillante e higiénico</p>
+                        </div>
+                    </div>
+
+                    <div class="p-6 pt-0 flex gap-3">
+                        <button onclick="openGalleryModal('piso_epoxico')" class="flex-1 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs transition-all flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-images"></i>
+                            <span>Ver Muestras</span>
+                        </button>
+                        <button onclick="quickSelectCalc('piso_epoxico')" class="flex-1 py-3 rounded-xl btn-gradient-cyan text-xs font-bold flex items-center justify-center gap-1">
+                            <span>Cotizar</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <section id="beneficios" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-neon-cyan text-xs sm:text-sm font-bold uppercase tracking-widest bg-neon-cyan/10 px-4 py-1.5 rounded-full border border-neon-cyan/20">
+                    Ventajas Clave
+                </span>
+                <h2 class="text-3xl sm:text-5xl font-black text-white mt-4 tracking-tight">
+                    ¿Por qué elegir <span class="gradient-text-vivid">Apex Epoxy</span>?
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="glass-card p-8 rounded-3xl border border-white/10">
+                    <div class="w-14 h-14 rounded-2xl btn-gradient-cyan flex items-center justify-center text-obsidian-900 text-2xl font-black mb-6">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Diseños 100% Exclusivos</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        Creamos veteados metálicos, acabados efecto mármol, tonos personalizados y superficies continuas adaptadas a tu espacio.
+                    </p>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl border border-white/10">
+                    <div class="w-14 h-14 rounded-2xl btn-gradient-magenta flex items-center justify-center text-white text-2xl font-black mb-6">
+                        <i class="fa-solid fa-shield-virus"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Cero Juntas & Máxima Higiene</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        Nuestras superficies sin uniones impiden la acumulación de suciedad, agua y bacterias. Se limpian fácilmente en segundos.
+                    </p>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl border border-white/10">
+                    <div class="w-14 h-14 rounded-2xl btn-gradient-gold flex items-center justify-center text-obsidian-900 text-2xl font-black mb-6">
+                        <i class="fa-solid fa-hammer"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Sin Obras Molestas</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        Aplicamos directamente sobre baldosas, concreto o pared existente sin romper ni generar escombros interminables.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="preguntas" class="py-20 bg-obsidian-800/40">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl sm:text-4xl font-black text-white tracking-tight">
+                    Preguntas <span class="gradient-text-vivid">Frecuentes</span>
+                </h2>
+            </div>
+
+            <div class="space-y-4">
+                <div class="glass-card rounded-2xl p-5 border border-white/10 cursor-pointer" onclick="toggleFaq('faq1')">
+                    <div class="flex justify-between items-center">
+                        <h4 class="font-bold text-white text-base">¿Se puede aplicar sobre el piso que ya tengo instalado?</h4>
+                        <i id="faq1-icon" class="fa-solid fa-plus text-neon-cyan"></i>
+                    </div>
+                    <p id="faq1" class="hidden mt-3 text-sm text-gray-300 leading-relaxed border-t border-white/10 pt-3">
+                        Sí. La resina epóxica, el porcelanato líquido y el microcemento se adhieren sobre cerámica, porcelanato o concreto sin necesidad de picar el piso.
+                    </p>
+                </div>
+
+                <div class="glass-card rounded-2xl p-5 border border-white/10 cursor-pointer" onclick="toggleFaq('faq2')">
+                    <div class="flex justify-between items-center">
+                        <h4 class="font-bold text-white text-base">¿Cuál es la diferencia entre Piso Epóxico y Porcelanato Líquido?</h4>
+                        <i id="faq2-icon" class="fa-solid fa-plus text-neon-cyan"></i>
+                    </div>
+                    <p id="faq2" class="hidden mt-3 text-sm text-gray-300 leading-relaxed border-t border-white/10 pt-3">
+                        El piso epóxico estándar es un recubrimiento liso monocromático o industrial ($8/m²). El porcelanato líquido ($26/m²) es un sistema vitrificado de gran espesor con acabados de efecto marmolado cristalino y alto lujo decorativo.
+                    </p>
+                </div>
+
+                <div class="glass-card rounded-2xl p-5 border border-white/10 cursor-pointer" onclick="toggleFaq('faq3')">
+                    <div class="flex justify-between items-center">
+                        <h4 class="font-bold text-white text-base">¿Cuánto tiempo toma la instalación?</h4>
+                        <i id="faq3-icon" class="fa-solid fa-plus text-neon-cyan"></i>
+                    </div>
+                    <p id="faq3" class="hidden mt-3 text-sm text-gray-300 leading-relaxed border-t border-white/10 pt-3">
+                        Dependiendo de la superficie, un área promedio de 30 a 70 m² toma entre 2 y 4 días de aplicación y curado final.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="glass-panel border-t border-white/10 pt-12 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6 mb-8">
+                <div class="flex items-center gap-3">
+                    <span class="font-black text-2xl text-white">APEX <span class="gradient-text-vivid">EPOXY</span></span>
+                </div>
+                <div class="flex items-center gap-4">
+                    <a href="https://wa.me/584244421118" target="_blank" class="btn-gradient-cyan px-6 py-3 rounded-xl font-bold text-sm flex items-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span>Contactar por WhatsApp: 0424-4421118</span>
+                    </a>
+                </div>
+            </div>
+            <div class="text-center text-xs text-gray-400 border-t border-white/5 pt-6">
+                <p>&copy; <span id="yearSpan"></span> Apex Epoxy. Revestimientos Profesionales de Lujo. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Action Button -->
+    <a href="https://wa.me/584244421118?text=Hola%20Apex%20Epoxy,%20quisiera%20asesor%C3%ADa." 
+       target="_blank" 
+       title="Contactar por WhatsApp"
+       class="fixed bottom-6 right-6 z-50 w-16 h-16 rounded-full bg-emerald-500 text-white flex items-center justify-center text-3xl shadow-2xl hover:scale-110 transition-transform duration-300 border-2 border-white">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span class="absolute inset-0 rounded-full bg-emerald-400 animate-ping opacity-30"></span>
+    </a>
+
+    <!-- Interactive Lightbox Modal for Photo Samples -->
+    <div id="galleryModal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden flex items-center justify-center p-4">
+        <div class="glass-panel max-w-3xl w-full rounded-3xl p-6 border border-neon-cyan/40 relative">
+            <button onclick="closeGalleryModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white p-2">
+                <i class="fa-solid fa-xmark text-2xl"></i>
+            </button>
+            
+            <h3 id="modalTitle" class="text-2xl font-black text-white mb-1">Muestras de Revestimiento</h3>
+            <p id="modalSubtitle" class="text-xs text-neon-cyan mb-6">Fotografías reales de acabado</p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4" id="modalImageGrid">
+                <!-- Images injected via JS -->
+            </div>
+
+            <div class="mt-6 flex justify-end">
+                <button onclick="closeGalleryModal()" class="px-6 py-2.5 rounded-xl bg-white/10 text-white font-bold text-xs">
+                    Cerrar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const productData = {
+            microcemento: {
+                name: "Microcemento",
+                isConfigurable: true,
+                pisoPrice: 13,
+                paredPrice: 12,
+                photos: [
+                    "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"
+                ]
+            },
+            porcelanato: {
+                name: "Porcelanato Líquido",
+                isConfigurable: false,
+                price: 26,
+                surfaceText: "Exclusivo para Pisos",
+                photos: [
+                    "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80"
+                ]
+            },
+            granito_liquido: {
+                name: "Granito Líquido",
+                isConfigurable: false,
+                price: 17,
+                surfaceText: "Exclusivo para Pisos",
+                photos: [
+                    "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80"
+                ]
+            },
+            estuco: {
+                name: "Estuco Veneciano",
+                isConfigurable: false,
+                price: 15,
+                surfaceText: "Exclusivo para Paredes",
+                photos: [
+                    "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80"
+                ]
+            },
+            granito_epoxico: {
+                name: "Granito Epóxico",
+                isConfigurable: false,
+                price: 9,
+                surfaceText: "Exclusivo para Pisos",
+                photos: [
+                    "https://images.unsplash.com/photo-1615529182904-14819c35db37?auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=800&q=80"
+                ]
+            },
+            piso_epoxico: {
+                name: "Piso Epóxico",
+                isConfigurable: false,
+                price: 8,
+                surfaceText: "Exclusivo para Pisos",
+                photos: [
+                    "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=800&q=80"
+                ]
+            }
+        };
+
+        let currentCalcKey = 'microcemento';
+        let microcementoSubtype = 'piso'; // 'piso' ($13) or 'pared' ($12)
+        const phoneWhatsApp = '584244421118';
+
+        document.getElementById('yearSpan').textContent = new Date().getFullYear();
+
+        const areaSlider = document.getElementById('areaSlider');
+        const areaInput = document.getElementById('areaInput');
+
+        areaSlider.addEventListener('input', (e) => {
+            areaInput.value = e.target.value;
+            calculateTotal();
+        });
+
+        areaInput.addEventListener('input', (e) => {
+            let val = parseInt(e.target.value) || 1;
+            if (val > 1000) val = 1000;
+            areaSlider.value = Math.min(val, 250);
+            calculateTotal();
+        });
+
+        function selectCalcProduct(key) {
+            currentCalcKey = key;
+
+            // Highlight selected product button
+            document.querySelectorAll('.calc-prod-btn').forEach(btn => {
+                btn.classList.remove('border-neon-cyan', 'bg-neon-cyan/20');
+                btn.classList.add('border-white/10');
+            });
+
+            const activeBtn = document.getElementById(`calc-btn-${key}`);
+            if (activeBtn) {
+                activeBtn.classList.remove('border-white/10');
+                activeBtn.classList.add('border-neon-cyan', 'bg-neon-cyan/20');
+            }
+
+            // Adjust surface controls depending on product type
+            const prod = productData[key];
+            const toggleContainer = document.getElementById('microcementoToggleContainer');
+            const noticeBox = document.getElementById('fixedSurfaceNotice');
+            const noticeText = document.getElementById('fixedSurfaceText');
+
+            if (prod.isConfigurable) {
+                toggleContainer.classList.remove('hidden');
+                noticeBox.classList.add('hidden');
+            } else {
+                toggleContainer.classList.add('hidden');
+                noticeBox.classList.remove('hidden');
+                noticeText.textContent = prod.surfaceText;
+            }
+
+            calculateTotal();
+        }
+
+        function setMicrocementoSurface(type) {
+            microcementoSubtype = type;
+            const pisoBtn = document.getElementById('surf-piso-btn');
+            const paredBtn = document.getElementById('surf-pared-btn');
+
+            if (type === 'piso') {
+                pisoBtn.className = 'py-2.5 px-4 rounded-xl border border-neon-cyan bg-neon-cyan/20 text-white font-bold text-xs flex items-center justify-center gap-2 transition-all';
+                paredBtn.className = 'py-2.5 px-4 rounded-xl border border-white/10 bg-white/5 text-gray-300 hover:text-white font-bold text-xs flex items-center justify-center gap-2 transition-all';
+            } else {
+                paredBtn.className = 'py-2.5 px-4 rounded-xl border border-neon-cyan bg-neon-cyan/20 text-white font-bold text-xs flex items-center justify-center gap-2 transition-all';
+                pisoBtn.className = 'py-2.5 px-4 rounded-xl border border-white/10 bg-white/5 text-gray-300 hover:text-white font-bold text-xs flex items-center justify-center gap-2 transition-all';
+            }
+
+            calculateTotal();
+        }
+
+        function calculateTotal() {
+            const prod = productData[currentCalcKey];
+            const area = parseInt(areaInput.value) || 1;
+            
+            let unitPrice = 0;
+            let surfaceLabel = "";
+
+            if (prod.isConfigurable) {
+                if (microcementoSubtype === 'piso') {
+                    unitPrice = prod.pisoPrice; // $13
+                    surfaceLabel = "Piso";
+                } else {
+                    unitPrice = prod.paredPrice; // $12
+                    surfaceLabel = "Pared";
+                }
+            } else {
+                unitPrice = prod.price;
+                surfaceLabel = prod.surfaceText;
+            }
+
+            const total = area * unitPrice;
+
+            document.getElementById('summaryProductName').textContent = prod.name;
+            document.getElementById('surfaceTag').textContent = surfaceLabel;
+            document.getElementById('summaryArea').textContent = `${area} m²`;
+            document.getElementById('summaryUnitPrice').textContent = `$${unitPrice}.00 / m²`;
+            document.getElementById('totalDisplay').textContent = total.toLocaleString('en-US');
+
+            const msg = `Hola Apex Epoxy! 👋 Quisiera solicitar un presupuesto para:
+✨ *Producto:* ${prod.name}
+📌 *Superficie:* ${surfaceLabel}
+📐 *Área:* ${area} m²
+💵 *Precio ref.:* $${unitPrice}/m²
+💰 *Monto Estimado Total:* $${total} USD
+
+Quedo atento para coordinar la inspección técnica.`;
+
+            document.getElementById('whatsappCalcBtn').href = `https://wa.me/${phoneWhatsApp}?text=${encodeURIComponent(msg)}`;
+        }
+
+        function quickSelectCalc(key) {
+            selectCalcProduct(key);
+            document.getElementById('calculadora').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function openGalleryModal(key) {
+            const prod = productData[key];
+            document.getElementById('modalTitle').textContent = `Muestras de ${prod.name}`;
+            document.getElementById('modalSubtitle').textContent = prod.isConfigurable ? "Acabados para Piso y Pared" : prod.surfaceText;
+
+            const grid = document.getElementById('modalImageGrid');
+            grid.innerHTML = '';
+
+            prod.photos.forEach(url => {
+                grid.innerHTML += `
+                    <div class="rounded-2xl overflow-hidden h-48 border border-white/20">
+                        <img src="${url}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+                    </div>
+                `;
+            });
+
+            document.getElementById('galleryModal').classList.remove('hidden');
+        }
+
+        function closeGalleryModal() {
+            document.getElementById('galleryModal').classList.add('hidden');
+        }
+
+        function toggleFaq(id) {
+            const el = document.getElementById(id);
+            const icon = document.getElementById(`${id}-icon`);
+            if (el.classList.contains('hidden')) {
+                el.classList.remove('hidden');
+                icon.classList.replace('fa-plus', 'fa-minus');
+            } else {
+                el.classList.add('hidden');
+                icon.classList.replace('fa-minus', 'fa-plus');
+            }
+        }
+
+        document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        });
+
+        // Initialize default calculator setup
+        selectCalcProduct('microcemento');
+    </script>
+</body>
+</html>
